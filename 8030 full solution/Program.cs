@@ -53,6 +53,7 @@ namespace _8030_full_solution
             //((Dog)c1).Growl(); //can't do this
 
             Animal an = new Dog();
+            //Dog dog = new Animal();
             an.MakeNoise();
             Animal ca = new Cat();
             //((Dog)ca).Growl(); //RT exception
