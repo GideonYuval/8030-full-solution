@@ -14,29 +14,37 @@ namespace _8030_full_solution
             Dog d1 = new Dog();
             Cat c1 = new Cat();
 
-            //DoAnimalStuff(a1);
-            //DoAnimalStuff(d1);
-            //DoAnimalStuff(c1);
-
             Console.WriteLine("demo");
             Animal[] arr = new Animal[3];
             arr[0] = a1;
             arr[1] = d1;
             arr[2] = c1;
-            foreach (Animal a2 in arr)
-                a2.MakeNoise();
+            foreach (Animal a in arr)
+                a.MakeNoise();
 
 
             Console.WriteLine(d1 is Animal);
             Console.WriteLine(a1 is Dog);
 
-            Animal a = new Dog(); //no need to write explicitly (Animal) new Dog();
-            a.MakeNoise();
+            DoAnimalStuff(a1);
+            DoAnimalStuff(d1);
+            DoAnimalStuff(c1);
+            Car car = new Car();
+            //DoAnimalStuff(car); //can't convert
 
-            ((Dog)a).Growl();
+            Animal a2 = new Dog(); //no need to write explicitly (Animal) new Dog();
+            a2.MakeNoise();
+
+            ((Dog)a2).Growl();
             //((Dog)c1).Growl(); //can't do this
 
+            Animal an = new Dog();
+            an.MakeNoise();
+            Animal ca = new Cat();
+            //((Dog)ca).Growl(); //RT exception
 
+            c1.MakeNoise();
+            c1.MakeNoise(3);
         }
 
         static void DoAnimalStuff(Animal a)
@@ -72,10 +80,18 @@ namespace _8030_full_solution
 
     public class Cat : Animal
     {
+
         public override void MakeNoise()
         {
             Console.WriteLine("Meow!");
         }
+
+
+        public void MakeNoise(int times)
+        {
+            Console.WriteLine($"Meow {times} times");
+        }
+
     }
 
     public class Car
