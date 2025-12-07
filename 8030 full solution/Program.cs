@@ -10,6 +10,20 @@ namespace _8030_full_solution
     {
         static void Main(string[] args)
         {
+            //Console.WriteLine(5/0); //compile error
+
+            //int x = 0;
+            //Console.WriteLine(5/x); //RT exception
+
+            int x = 4;
+            double y = x; //implicit cast
+            y = (int)x; //explicit - not needed
+            y = 4.3;
+            //x = y; //won't work, need casting
+            x = (int)y;
+            //x = (int)("abc"); //can't convert
+            
+            
             Animal a1 = new Animal();
             Dog d1 = new Dog();
             Cat c1 = new Cat();
