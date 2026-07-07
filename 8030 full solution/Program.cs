@@ -17,7 +17,7 @@ namespace _8030_full_solution
 
             int x = 4;
             double y = x; //implicit cast
-            y = (int)x; //explicit - not needed
+            y = (double)x; //explicit - not needed
             y = 4.3;
             //x = y; //won't work, need casting
             x = (int)y;
