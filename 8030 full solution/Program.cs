@@ -71,10 +71,33 @@ namespace _8030_full_solution
             Animal a3 = new Cat();
             //((Dog)a3).Growl(); //RT exception
 
-
-
             c1.MakeNoise();
             c1.MakeNoise(3);
+
+            
+            
+            // 1. Everything inherits from Object! Even a Dog and a Car.
+            object obj1 = d1;
+            object obj2 = car1;
+
+            // 2. An array of objects containing Dogs, Cats, and a null
+            object[] objects = new object[] { d1, c1, null };
+
+            // 3. The array holds 'object', but foreach casts to 'Animal' automatically!
+            foreach (Animal animal in objects)
+            {
+                // 4. 'is' safely returns false for null. NO crash!
+                if (animal is Dog)
+                {
+                    Console.Write("Foreach auto-downcasted a Dog: ");
+                }
+
+                // We protect the method call from the null item
+                if (animal != null)
+                {
+                    animal.MakeNoise();
+                }
+            }
         }
 
         static void DoAnimalStuff(Animal a)
