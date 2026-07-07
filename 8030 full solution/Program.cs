@@ -33,30 +33,45 @@ namespace _8030_full_solution
             arr[0] = a1;
             arr[1] = d1;
             arr[2] = c1;
+
+            Animal ad = d1;
+            Animal ac = new Cat();
+
+            Console.WriteLine(d1 is Dog);
+            Console.WriteLine(d1 is Animal);
+            Console.WriteLine(a1 is Dog);
+            Car car1 = new Car();
+            Console.WriteLine(car1 is Animal);
+
+            Animal aa;
+            aa = d1;
+            aa = (Animal)d1;
+
+            for (int i = 0;i<arr.Length;i++)
+                arr[i].MakeNoise();
             foreach (Animal a in arr)
                 a.MakeNoise();
 
 
-            Console.WriteLine(d1 is Animal);
-            Console.WriteLine(a1 is Dog);
-
             DoAnimalStuff(a1);
             DoAnimalStuff(d1);
             DoAnimalStuff(c1);
-            Car car = new Car();
+
             //DoAnimalStuff(car); //can't convert
-
-            Animal a2 = new Dog(); //no need to write explicitly (Animal) new Dog();
+            //d1 = (Dog)c1; //can't convert
+            
+            Animal a2 = new Dog();
+            //Dog d2 = new Animal();
+            Cat c2 = new Cat();
             a2.MakeNoise();
+            //a2.Growl();
+            //((Dog)a2).Growl();
+            //((Dog)c2).Growl();
 
-            ((Dog)a2).Growl();
-            //((Dog)c1).Growl(); //can't do this
+            Animal a3 = new Cat();
+            //((Dog)a3).Growl(); //RT exception
 
-            Animal an = new Dog();
-            //Dog dog = new Animal();
-            an.MakeNoise();
-            Animal ca = new Cat();
-            //((Dog)ca).Growl(); //RT exception
+
 
             c1.MakeNoise();
             c1.MakeNoise(3);
