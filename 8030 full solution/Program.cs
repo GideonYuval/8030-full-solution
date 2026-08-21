@@ -29,7 +29,7 @@ namespace _8030_full_solution
             Cat c1 = new Cat();
 
             Console.WriteLine("demo");
-            Animal[] arr = new Animal[3];
+            Animal[] arr = new Animal[4];
             arr[0] = a1;
             arr[1] = d1;
             arr[2] = c1;
@@ -42,6 +42,9 @@ namespace _8030_full_solution
             Console.WriteLine(a1 is Dog);
             Car car1 = new Car();
             Console.WriteLine(car1 is Animal);
+
+            arr[3] = new Poodle();
+
 
             Animal aa;
             aa = d1;
@@ -107,6 +110,17 @@ namespace _8030_full_solution
             if (a is Dog)
                 ((Dog)a).Growl();
         }
+
+        static bool AreDogsBalanced(Animal[] arr) //return true if #of Poodles as many as non-Poodles
+        {
+            int Poodle = 0, notPoodle = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] is Poodle) Poodle++; //safe because "is" also checks for null
+                else if (arr[i] is Dog) notPoodle++; //safe because "is" also checks for null
+            }
+            return Poodle == notPoodle;
+        }
     }
 
     public class Animal
@@ -153,5 +167,10 @@ namespace _8030_full_solution
         {
             Console.WriteLine("Voom!");
         }
+    }
+
+    public class Poodle : Dog
+    {
+        private bool HasFancyHaircut;
     }
 }
